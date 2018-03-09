@@ -24,4 +24,10 @@ describe("Mastermind", () => {
     });
 
 
+    it("Should not match again allowed colors", () => {
+        arr1 = ['red', 'blue'];
+        arr2 = ['red', 'red'];
+        result = [1, 0];
+        Mastermind(arr1, arr2).should.deepEqual(result);
+    });
 });
