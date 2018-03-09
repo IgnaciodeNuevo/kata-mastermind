@@ -3,36 +3,36 @@ const Mastermind = require('./mastermind');
 
 describe("Mastermind", () => {
     it("Should fail when bad guess", () => {
-        arr1 = ['blue'];
-        arr2 = ['red'];
-        result = [0, 0];
-        Mastermind(arr1, arr2).should.deepEqual(result);
+        const secret = ['blue'];
+        const guess = ['red'];
+        const expected = [0, 0];
+        Mastermind(secret, guess).should.deepEqual(expected);
     });
 
     it("Should match guessed color", () => {
-        arr1 = ['blue', 'red'];
-        arr2 = ['red', 'yellow'];
-        result = [0, 1];
-        Mastermind(arr1, arr2).should.deepEqual(result);
+        const secret = ['blue', 'red'];
+        const guess = ['red', 'yellow'];
+        const expected = [0, 1];
+        Mastermind(secret, guess).should.deepEqual(expected);
     });
 
     it("Should match color at right position", () => {
-        arr1 = ['red', 'blue'];
-        arr2 = ['red', 'orange'];
-        result = [1, 0];
-        Mastermind(arr1, arr2).should.deepEqual(result);
+        const secret = ['red', 'blue'];
+        const guess = ['red', 'orange'];
+        const expected = [1, 0];
+        Mastermind(secret, guess).should.deepEqual(expected);
     });
 
 
     it("Should not match again allowed colors", () => {
-        arr1 = ['red', 'blue'];
-        arr2 = ['red', 'red'];
-        result = [1, 0];
-        Mastermind(arr1, arr2).should.deepEqual(result);
+        const secret = ['red', 'blue'];
+        const guess = ['red', 'red'];
+        const expected = [1, 0];
+        Mastermind(secret, guess).should.deepEqual(expected);
     });
 
     it("Should check proper inputs", () => {
-        arr2 = ['red', 'red'];
-        Mastermind(0, arr2).should.deepEqual([0,0]);
+        const guess = ['red', 'red'];
+        Mastermind(0, guess).should.deepEqual([0,0]);
     });
 });
