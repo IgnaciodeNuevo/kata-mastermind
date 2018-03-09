@@ -30,4 +30,9 @@ describe("Mastermind", () => {
         result = [1, 0];
         Mastermind(arr1, arr2).should.deepEqual(result);
     });
+
+    it("Should check proper inputs", () => {
+        arr2 = ['red', 'red'];
+        Mastermind(0, arr2).should.deepEqual([0,0]);
+    });
 });
