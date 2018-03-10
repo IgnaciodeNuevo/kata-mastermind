@@ -1,1 +1,1 @@
-npm run test
+# javascript-kata-starter
