@@ -1,23 +1,33 @@
-module.exports = (secret, guess) => {
-    let matchedColorAndIndex = 0;
-    let matchedColor = 0;
-    let viewedColors = [];
+module.exports = function(secret) {
+    validateInput(secret);
+    const self = this;
+    self.secret = secret;
 
-    if (!Array.isArray(secret) || !Array.isArray(guess)) {
-        return [0,0];
+    function play(guess) {
+        validateInput(guess);
+    
+        return guess.map((element, index) => {
+            const matchedColorAndIndex = (self.secret[index] === element) ? 1 : 0; 
+            const matchedColor = !matchedColorAndIndex && self.secret.includes(element) ? 1 : 0;
+            return {
+                matchedColorAndIndex, 
+                matchedColor
+            };
+        }).reduce((accumulator, currentValue) => {
+            return {
+                matchedColorAndIndex: accumulator.matchedColorAndIndex + currentValue.matchedColorAndIndex,
+                matchedColor: accumulator.matchedColor + currentValue.matchedColor
+            };
+        });
     }
 
-    guess.map((element, index) => {
-        if (viewedColors.includes(element)) {
-            return;
+    function validateInput(input) {
+        if (!Array.isArray(input) || Array.length === 0) {
+            throw new Error(`Should provide a valid input`);
         }
-        viewedColors.push(element);
-        if (secret[index] === element) {
-            matchedColorAndIndex++;
-        } else if (secret.includes(element)) {
-            matchedColor++;
-        }
-    });
+    }
 
-    return [matchedColorAndIndex, matchedColor];
+    return {
+        play
+    };
 };
