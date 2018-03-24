@@ -5,7 +5,8 @@
 `npm run test`
 
 `npm run test:watch`
+
 ## Contributors
 
-* Twitter: [Adrián Abreu](https://twitter.com/aabreuglez) & Github: [Adrián Abreu](https://github.com/adrianabreu)
-* Twitter: [Ignacio Villanueva](https://twitter.com/IgnaciodeNuevo) & Github: [Ignacio Villanueva](https://github.com/IgnaciodeNuevo)
+* Adrián Abreu: [Twitter](https://twitter.com/aabreuglez) & [Github](https://github.com/adrianabreu)
+* Ignacio Villanueva: [Twitter](https://twitter.com/IgnaciodeNuevo) & [Github](https://github.com/IgnaciodeNuevo)
